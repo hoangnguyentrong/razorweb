@@ -1,0 +1,35 @@
+@page
+@model razorweb.Pages_Blog.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Xoa bai viet</h1>
+
+<h3>Co chac xoa khong?</h3>
+<div>
+    <h4>Bai viet</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Article.Created)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Article.Created)
+        </dd>
+        
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Article.Id" />
+        <input type="submit" value="Xoa" class="btn btn-danger" /> |
+        <a asp-page="./Index">Quay lai danh sach</a>
+    </form>
+</div>
