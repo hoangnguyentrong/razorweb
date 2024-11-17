@@ -7,12 +7,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using c_.git.razorweb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace razorweb.Areas.Identity.Pages.Account.Manage
 {
+
     public class IndexModel : PageModel
     {
         private readonly UserManager<AppUser> _userManager;

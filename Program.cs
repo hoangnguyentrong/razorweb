@@ -19,7 +19,7 @@ builder.Services.AddDbContext<MyBlogContext>(option => {
 builder.Services.AddOptions();
 var mailSetting = builder.Configuration.GetSection("MailSettings");
 builder.Services.Configure<MailSettings>(mailSetting);
-builder.Services.AddSingleton<IEmailSender, SendMailService>();
+builder.Services.AddTransient<IEmailSender, SendMailService>();
 
 builder.Services.AddDefaultIdentity<AppUser>()
                 .AddEntityFrameworkStores<MyBlogContext>()
@@ -48,6 +48,7 @@ builder.Services.AddDefaultIdentity<AppUser>()
     // Cấu hình đăng nhập.
     options.SignIn.RequireConfirmedEmail = true;            // Cấu hình xác thực địa chỉ email (email phải tồn tại)
     options.SignIn.RequireConfirmedPhoneNumber = false;     // Xác thực số điện thoại
+    options.SignIn.RequireConfirmedAccount = true;
 
 });               
 var app = builder.Build();

@@ -10,10 +10,10 @@ namespace Album.Mail {
 
     // Cấu hình dịch vụ gửi mail, giá trị Inject từ appsettings.json
     public class MailSettings {
-        public string Mail { get; set; }
-        public string DisplayName { get; set; }
-        public string Password { get; set; }
-        public string Host { get; set; }
+        public string Mail { get; set; } = string.Empty;
+        public string DisplayName { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public string Host { get; set; } = string.Empty;
         public int Port { get; set; }
 
     }
@@ -30,6 +30,8 @@ namespace Album.Mail {
             mailSettings = _mailSettings.Value;
             logger = _logger;
             logger.LogInformation ("Create SendMailService");
+            logger.LogInformation("Create SendMailService");
+            logger.LogInformation("Mail Password: " + mailSettings.Password); 
         }
 
         public async Task SendEmailAsync (string email, string subject, string htmlMessage) {

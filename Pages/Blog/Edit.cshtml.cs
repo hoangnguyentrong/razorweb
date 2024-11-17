@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using c_.git.razorweb.Models;
 using razorweb.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace razorweb.Pages_Blog
 {
+    
     public class EditModel : PageModel
     {
         private readonly razorweb.Models.MyBlogContext _context;
