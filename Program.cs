@@ -50,7 +50,15 @@ builder.Services.AddDefaultIdentity<AppUser>()
     options.SignIn.RequireConfirmedPhoneNumber = false;     // Xác thực số điện thoại
     options.SignIn.RequireConfirmedAccount = true;
 
-});               
+});    
+
+builder.Services.AddAuthentication().AddGoogle(option =>{
+    var gcongif = builder.Configuration.GetSection("Authentication:Google");
+    option.ClientId = gcongif["ClientId"];
+    option.ClientSecret = gcongif["ClientSecret"];
+    option.CallbackPath = "/dang-nhap-tu-google";
+    
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
